@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TasksListViewInput: class {
-    func set(viewModel: [TasksListViewModel])
+    func set(viewModel: TasksListViewModel)
     
     func showOnDeleteAlert(
         okAction: @escaping ()->Void,
