@@ -27,6 +27,7 @@
 		49D1615421D00BF400F5C0CB /* StoreServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615321D00BF400F5C0CB /* StoreServiceErrors.swift */; };
 		49D1615621D012F200F5C0CB /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49D1615521D012F200F5C0CB /* Cartfile */; };
 		49D1615B21D0167100F5C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D1615A21D0167100F5C0CB /* SnapKit.framework */; };
+		49D1615D21D0170900F5C0CB /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615C21D0170900F5C0CB /* TaskListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		49D1615321D00BF400F5C0CB /* StoreServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreServiceErrors.swift; sourceTree = "<group>"; };
 		49D1615521D012F200F5C0CB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		49D1615A21D0167100F5C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		49D1615C21D0170900F5C0CB /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				49D1613F21D002C500F5C0CB /* Protocols */,
 				49D1614121D0030700F5C0CB /* TasksListViewController.swift */,
+				49D1615C21D0170900F5C0CB /* TaskListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
 				49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */,
 				49D1610821CE68BB00F5C0CB /* AppDelegate.swift in Sources */,
+				49D1615D21D0170900F5C0CB /* TaskListTableViewCell.swift in Sources */,
 				49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */,
 				49D1614C21D0034100F5C0CB /* TasksListInteractor.swift in Sources */,
 				49D1614821D0032A00F5C0CB /* TasksListPresenter.swift in Sources */,

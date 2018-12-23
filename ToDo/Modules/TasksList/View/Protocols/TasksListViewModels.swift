@@ -11,7 +11,8 @@ import Foundation
 struct TasksListItem {
     let title: String
     let status: String
-    let description: String?
+    let note: String?
+    let dueDate: String?
     let onTapHandler: ()->Void
 }
 
