@@ -27,6 +27,7 @@ final class TasksListViewController: UIViewController, TasksListView {
         setupLayout()
         setupAppearance()
         setupBehaviour()
+        setupNavigationItem()
         output?.loaded()
     }
     
@@ -34,7 +35,7 @@ final class TasksListViewController: UIViewController, TasksListView {
         tableView.snp.makeConstraints { (make) in
             make.leading.equalTo(view.snp.leading)
             make.top.equalTo(view.snp.top)
-            make.leading.equalTo(view.snp.leading)
+            make.trailing.equalTo(view.snp.trailing)
             make.bottom.equalTo(view.snp.bottom)
         }
     }
@@ -50,6 +51,34 @@ final class TasksListViewController: UIViewController, TasksListView {
             TaskListTableViewCell.self,
             forCellReuseIdentifier: reuseIdentifier
         )
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.title = "ToDo"
+        
+        let filterNavigationButton = UIBarButtonItem(
+            barButtonSystemItem: .organize,
+            target: self,
+            action: #selector(handleFilterNavigationButtonPressed)
+        )
+        navigationItem.leftBarButtonItem = filterNavigationButton
+        
+        let createTaskNavigationButton = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(handleCreateTaskButtonPressed)
+        )
+        navigationItem.rightBarButtonItem = createTaskNavigationButton
+    }
+    
+    @objc
+    private func handleFilterNavigationButtonPressed() {
+        output?.requestConfigureFilter()
+    }
+    
+    @objc
+    private func handleCreateTaskButtonPressed() {
+        output?.requestCreateTask()
     }
 }
 
