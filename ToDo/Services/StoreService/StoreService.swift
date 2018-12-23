@@ -11,25 +11,25 @@ import Foundation
 protocol StoreService: class {
     func loadItems(
         onSuccess: @escaping ([ToDoItem])->Void,
-        onFailure: @escaping (Error?)->Void
+        onFailure: @escaping (StoreServiceError)->Void
     )
     
     func add(
         item: ToDoItem,
         onSuccess: @escaping ()->Void,
-        onFailure: @escaping (Error?)->Void
+        onFailure: @escaping (StoreServiceError)->Void
     )
     
     func replace(
         oldItem: ToDoItem,
         with newItem: ToDoItem,
         onSuccess: @escaping ()->Void,
-        onFailure: @escaping (Error?)->Void
+        onFailure: @escaping (StoreServiceError)->Void
     )
     
     func remove(
         item: ToDoItem,
         onSuccess: @escaping ()->Void,
-        onFailure: @escaping (Error?)->Void
+        onFailure: @escaping (StoreServiceError)->Void
     )
 }
