@@ -16,20 +16,20 @@ protocol StoreService: class {
     
     func add(
         item: ToDoItem,
-        onSuccess: @escaping ()->Void,
+        onSuccess: @escaping ([ToDoItem])->Void,
         onFailure: @escaping (StoreServiceError)->Void
     )
     
     func replace(
         oldItem: ToDoItem,
         with newItem: ToDoItem,
-        onSuccess: @escaping ()->Void,
+        onSuccess: @escaping ([ToDoItem])->Void,
         onFailure: @escaping (StoreServiceError)->Void
     )
     
     func remove(
         item: ToDoItem,
-        onSuccess: @escaping ()->Void,
+        onSuccess: @escaping ([ToDoItem])->Void,
         onFailure: @escaping (StoreServiceError)->Void
     )
 }
