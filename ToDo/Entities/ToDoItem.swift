@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ToDoItem: Codable {
+struct ToDoItem: Codable, Equatable {
     
     /// Дата создания задачи
     let createAt: Date
