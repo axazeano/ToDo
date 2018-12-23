@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+protocol TaskEditorViewInput: class {
+    func set(viewModel: TaskEditorViewModel)
+    func showDatePicker()
+    func showDeleteAlert()
+}
+
+protocol TaskEditorViewOutput: class {
+    func loaded()
+    func requestSaveChanges()
+    func requestExit()
+    func requestDeleteTask()
+}
