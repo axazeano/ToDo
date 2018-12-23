@@ -23,6 +23,7 @@
 		49D1614C21D0034100F5C0CB /* TasksListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1614B21D0034100F5C0CB /* TasksListInteractor.swift */; };
 		49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1614D21D0038C00F5C0CB /* TasksListAssembly.swift */; };
 		49D1615021D0039800F5C0CB /* TasksListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1614F21D0039800F5C0CB /* TasksListRouter.swift */; };
+		49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615121D003E400F5C0CB /* TasksListViewModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		49D1614B21D0034100F5C0CB /* TasksListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListInteractor.swift; sourceTree = "<group>"; };
 		49D1614D21D0038C00F5C0CB /* TasksListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListAssembly.swift; sourceTree = "<group>"; };
 		49D1614F21D0039800F5C0CB /* TasksListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListRouter.swift; sourceTree = "<group>"; };
+		49D1615121D003E400F5C0CB /* TasksListViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				49D1614421D0031B00F5C0CB /* TasksListViewProtocols.swift */,
+				49D1615121D003E400F5C0CB /* TasksListViewModels.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
 				49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */,
 				49D1610821CE68BB00F5C0CB /* AppDelegate.swift in Sources */,
+				49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */,
 				49D1614C21D0034100F5C0CB /* TasksListInteractor.swift in Sources */,
 				49D1614821D0032A00F5C0CB /* TasksListPresenter.swift in Sources */,
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
