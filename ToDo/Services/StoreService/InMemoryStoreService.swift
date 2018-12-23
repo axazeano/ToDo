@@ -33,7 +33,13 @@ final class InMemoryStoreService: StoreService {
         onSuccess: @escaping () -> Void,
         onFailure: @escaping (Error?) -> Void
     ) {
-        
+        items = items.map {
+            if $0 == oldItem {
+                return newItem
+            } else {
+                return $0
+            }
+        }
     }
     
     func remove(
@@ -41,7 +47,7 @@ final class InMemoryStoreService: StoreService {
         onSuccess: @escaping () -> Void,
         onFailure: @escaping (Error?) -> Void
     ) {
-        
+        items = items.filter { $0 != item }
     }
     
     
