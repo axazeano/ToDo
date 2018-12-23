@@ -12,6 +12,7 @@ final class TaskListPresenter {
     weak var view: TasksListView?
     var interactor: TasksListInteractorInput?
     private let dateFormatter = DateFormatter()
+    private let calendar = Calendar.current
     
     init() {
         dateFormatter.dateFormat = "d MMMM"
@@ -53,9 +54,20 @@ extension TaskListPresenter: TasksListInteractorOutput {
     }
     
     private func convertTasksToViewModel(_ tasks: [ToDoItem]) -> TasksListViewModel {
-        let uniqueDates = Set(tasks.compactMap { $0.createAt })
+        let uniqueDates = Set(
+            tasks.compactMap {
+                self.extractDay(from: $0.createAt)
+            }
+        )
+        
         let sections = uniqueDates.map { (date) -> TasksListGroup in
-            let groupedTasks = tasks.filter { $0.createAt == date }
+            let groupedTasks = tasks.filter {
+                self.calendar.compare(
+                    date,
+                    to: $0.createAt,
+                    toGranularity: .day
+                ) == .orderedSame
+            }
             return converTasksToViewSection(groupedTasks, date: date)
         }
         return TasksListViewModel(groups: sections)
@@ -84,5 +96,10 @@ extension TaskListPresenter: TasksListInteractorOutput {
         case .inProgress: return "В процессе"
         case .completed: return "Завершена"
         }
+    }
+    
+    private func extractDay(from date: Date) -> Date? {
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+        return calendar.date(from: dateComponents)
     }
 }
