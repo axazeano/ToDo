@@ -19,12 +19,23 @@ struct ToDoItem: Codable, Equatable {
     /// Заголовок задачи
     var title: String
     
-    /// Истек ли срок выполнения задачи?
-    var isExpired: Bool
-    
     /// Дополнительная заметка
     var note: String?
     
     /// Статус задачи
     var status: ToDoStatus
+    
+    init(
+        createAt: Date,
+        dueDate: Date?,
+        title: String,
+        note: String?,
+        status: ToDoStatus
+    ) {
+        self.createAt = createAt
+        self.dueDate = dueDate
+        self.title = title
+        self.note = note
+        self.status = status
+    }
 }
