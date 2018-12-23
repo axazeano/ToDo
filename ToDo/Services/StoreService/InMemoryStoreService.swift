@@ -13,25 +13,25 @@ final class InMemoryStoreService: StoreService {
     
     func loadItems(
         onSuccess: @escaping ([ToDoItem]) -> Void,
-        onFailure: @escaping (Error?) -> Void
+        onFailure: @escaping (StoreServiceError) -> Void
     ) {
         onSuccess(items)
     }
     
     func add(
         item: ToDoItem,
-        onSuccess: @escaping () -> Void,
-        onFailure: @escaping (Error?) -> Void
+        onSuccess: @escaping ([ToDoItem]) -> Void,
+        onFailure: @escaping (StoreServiceError) -> Void
     ) {
         items.append(item)
-        onSuccess()
+        onSuccess(items)
     }
     
     func replace(
         oldItem: ToDoItem,
         with newItem: ToDoItem,
-        onSuccess: @escaping () -> Void,
-        onFailure: @escaping (Error?) -> Void
+        onSuccess: @escaping ([ToDoItem]) -> Void,
+        onFailure: @escaping (StoreServiceError) -> Void
     ) {
         items = items.map {
             if $0 == oldItem {
@@ -40,14 +40,16 @@ final class InMemoryStoreService: StoreService {
                 return $0
             }
         }
+        onSuccess(items)
     }
     
     func remove(
         item: ToDoItem,
-        onSuccess: @escaping () -> Void,
-        onFailure: @escaping (Error?) -> Void
+        onSuccess: @escaping ([ToDoItem]) -> Void,
+        onFailure: @escaping (StoreServiceError) -> Void
     ) {
         items = items.filter { $0 != item }
+        onSuccess(items)
     }
     
     
