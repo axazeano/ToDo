@@ -10,7 +10,8 @@ import Foundation
 
 final class TasksListInteractor {
     weak var output: TasksListInteractorOutput?
-    var storeService: StoreService
+    private let storeService: StoreService
+    private var filterByStatus: ToDoStatus?
     
     init(storeService: StoreService) {
         self.storeService = storeService
@@ -21,31 +22,42 @@ extension TasksListInteractor: TasksListInteractorInput {
     func requestTasks() {
         storeService.loadItems(
             onSuccess: { [weak self] (tasks) in
-                self?.output?.set(tasks: tasks)
-            }) { (error) in
-                print(error)
+                self?.handle(tasks: tasks)
+            },
+            onFailure: { [weak self] (_) in
+                self?.output?.setErrorState()
             }
-    }
-    
-    func requestTasks(with status: ToDoStatus) {
-        storeService.loadItems(
-            onSuccess: { [weak self] (tasks) in
-                self?.output?.set(
-                    tasks: tasks.filter { $0.status == status },
-                    with: status
-                )
-        }) { (error) in
-            print(error)
-        }
+        )
     }
     
     func remove(task: ToDoItem) {
         storeService.remove(
             item: task,
-            onSuccess: {
-                
-        }) { (error) in
-            
+            onSuccess: { [weak self] (tasks) in
+                self?.handle(tasks: tasks)
+            },
+            onFailure: { [weak self] (_) in
+                self?.output?.setErrorState()
+            }
+        )
+    }
+    
+    func handle(tasks: [ToDoItem]) {
+        if let status = filterByStatus {
+            output?.set(
+                tasks: tasks.filter { $0.status == status },
+                with: status
+            )
+        } else {
+            output?.set(tasks: tasks)
         }
+    }
+    
+    func setFilter(by status: ToDoStatus) {
+        self.filterByStatus = status
+    }
+    
+    func removeFilter() {
+        self.filterByStatus = nil
     }
 }
