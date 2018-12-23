@@ -26,9 +26,31 @@
 		49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615121D003E400F5C0CB /* TasksListViewModels.swift */; };
 		49D1615421D00BF400F5C0CB /* StoreServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615321D00BF400F5C0CB /* StoreServiceErrors.swift */; };
 		49D1615621D012F200F5C0CB /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49D1615521D012F200F5C0CB /* Cartfile */; };
-		49D1615B21D0167100F5C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D1615A21D0167100F5C0CB /* SnapKit.framework */; };
 		49D1615D21D0170900F5C0CB /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1615C21D0170900F5C0CB /* TaskListTableViewCell.swift */; };
+		49D1615E21D0342000F5C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D1615A21D0167100F5C0CB /* SnapKit.framework */; };
+		49D1615F21D0342000F5C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49D1615A21D0167100F5C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49D1616921D043CB00F5C0CB /* TaskEditorViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1616821D043CB00F5C0CB /* TaskEditorViewProtocols.swift */; };
+		49D1616B21D043F500F5C0CB /* TaskEditorViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1616A21D043F500F5C0CB /* TaskEditorViewModels.swift */; };
+		49D1616D21D0440700F5C0CB /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1616C21D0440700F5C0CB /* TaskEditorViewController.swift */; };
+		49D1616F21D0443500F5C0CB /* TaskEditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1616E21D0443500F5C0CB /* TaskEditorPresenter.swift */; };
+		49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */; };
+		49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617221D0446700F5C0CB /* TaskEditorInteractor.swift */; };
+		49D1617521D0447600F5C0CB /* TaskEditorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617421D0447600F5C0CB /* TaskEditorAssembly.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49D1616021D0342300F5C0CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49D1615F21D0342000F5C0CB /* SnapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		49D1610421CE68BB00F5C0CB /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +76,13 @@
 		49D1615521D012F200F5C0CB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		49D1615A21D0167100F5C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		49D1615C21D0170900F5C0CB /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
+		49D1616821D043CB00F5C0CB /* TaskEditorViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewProtocols.swift; sourceTree = "<group>"; };
+		49D1616A21D043F500F5C0CB /* TaskEditorViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewModels.swift; sourceTree = "<group>"; };
+		49D1616C21D0440700F5C0CB /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
+		49D1616E21D0443500F5C0CB /* TaskEditorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorPresenter.swift; sourceTree = "<group>"; };
+		49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractorProtocols.swift; sourceTree = "<group>"; };
+		49D1617221D0446700F5C0CB /* TaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractor.swift; sourceTree = "<group>"; };
+		49D1617421D0447600F5C0CB /* TaskEditorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49D1615B21D0167100F5C0CB /* SnapKit.framework in Frameworks */,
+				49D1615E21D0342000F5C0CB /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +161,7 @@
 		49D1613821D0028A00F5C0CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49D1616121D03A8500F5C0CB /* TaskEditor */,
 				49D1613921D0029700F5C0CB /* TasksList */,
 			);
 			path = Modules;
@@ -217,6 +247,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		49D1616121D03A8500F5C0CB /* TaskEditor */ = {
+			isa = PBXGroup;
+			children = (
+				49D1616521D03AA500F5C0CB /* Assembly */,
+				49D1616421D03A9F00F5C0CB /* Interactor */,
+				49D1616321D03A9B00F5C0CB /* Presenter */,
+				49D1616221D03A9400F5C0CB /* View */,
+			);
+			path = TaskEditor;
+			sourceTree = "<group>";
+		};
+		49D1616221D03A9400F5C0CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49D1616621D03ADD00F5C0CB /* Protocols */,
+				49D1616C21D0440700F5C0CB /* TaskEditorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49D1616321D03A9B00F5C0CB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				49D1616E21D0443500F5C0CB /* TaskEditorPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		49D1616421D03A9F00F5C0CB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				49D1616721D03AE500F5C0CB /* Protocols */,
+				49D1617221D0446700F5C0CB /* TaskEditorInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		49D1616521D03AA500F5C0CB /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				49D1617421D0447600F5C0CB /* TaskEditorAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		49D1616621D03ADD00F5C0CB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49D1616821D043CB00F5C0CB /* TaskEditorViewProtocols.swift */,
+				49D1616A21D043F500F5C0CB /* TaskEditorViewModels.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49D1616721D03AE500F5C0CB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,7 +319,7 @@
 				49D1610021CE68BB00F5C0CB /* Sources */,
 				49D1610121CE68BB00F5C0CB /* Frameworks */,
 				49D1610221CE68BB00F5C0CB /* Resources */,
-				49D1615821D0144300F5C0CB /* ShellScript */,
+				49D1616021D0342300F5C0CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,38 +377,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		49D1615821D0144300F5C0CB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Snapkit.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Snapkit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		49D1610021CE68BB00F5C0CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D1616B21D043F500F5C0CB /* TaskEditorViewModels.swift in Sources */,
 				49D1615021D0039800F5C0CB /* TasksListRouter.swift in Sources */,
 				49D1610A21CE68BB00F5C0CB /* ViewController.swift in Sources */,
 				49D1614A21D0033700F5C0CB /* TasksListInteractorProtocols.swift in Sources */,
+				49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */,
+				49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */,
 				49D1614521D0031B00F5C0CB /* TasksListViewProtocols.swift in Sources */,
+				49D1616921D043CB00F5C0CB /* TaskEditorViewProtocols.swift in Sources */,
+				49D1616F21D0443500F5C0CB /* TaskEditorPresenter.swift in Sources */,
 				49D1615421D00BF400F5C0CB /* StoreServiceErrors.swift in Sources */,
+				49D1616D21D0440700F5C0CB /* TaskEditorViewController.swift in Sources */,
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
 				49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */,
 				49D1610821CE68BB00F5C0CB /* AppDelegate.swift in Sources */,
@@ -327,6 +403,7 @@
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
 				49D1614221D0030700F5C0CB /* TasksListViewController.swift in Sources */,
 				49D1611B21CE69D400F5C0CB /* ToDoItem.swift in Sources */,
+				49D1617521D0447600F5C0CB /* TaskEditorAssembly.swift in Sources */,
 				49D1612521CFCAB400F5C0CB /* InMemoryStoreService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
