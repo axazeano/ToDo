@@ -12,6 +12,7 @@ final class StatusPickerPresenter {
     weak var view: StatusPickerView?
     var selectedStatus: ToDoStatus?
     var moduleOutput: StatusPickerModuleOutput?
+    var router: StatusPickerRouter?
 }
 
 extension StatusPickerPresenter: StatusPickerViewOutput {
@@ -21,7 +22,7 @@ extension StatusPickerPresenter: StatusPickerViewOutput {
     }
     
     func requestToClose() {
-        
+        router?.close()
     }
     
     private func buildViewModel() -> [StatusPickerViewItem] {
@@ -30,6 +31,7 @@ extension StatusPickerPresenter: StatusPickerViewOutput {
                 title: status.name,
                 onPressHandler: {
                     self?.moduleOutput?.set(status: status)
+                    self?.router?.close()
                 },
                 isSelected: self?.isStatusSelected(status) ?? false
             )
