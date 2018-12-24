@@ -11,24 +11,31 @@ import UIKit
 
 // TODO: Хорошо бы это дело в Viper модуль засунуть, но как со времем получится
 final class DatePicker: UIAlertController {
+    
+    var okButtonHandler: ((Date)->Void)?
+    var cancelButtonHandler: (()->Void)?
+    
+    override var preferredStyle: UIAlertController.Style {
+        return .actionSheet
+    }
+    
     private let datePicker = UIDatePicker()
+    
     var minimumDate: Date? {
         didSet {
             datePicker.minimumDate = minimumDate
         }
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(
+        nibName nibNameOrNil: String?,
+        bundle nibBundleOrNil: Bundle?
+    ) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         embedViews()
         setupActions()
         setupAppearance()
         setupBehaviour()
-    }
-    
-    
-    override var preferredStyle: UIAlertController.Style {
-        return .actionSheet
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,8 +55,6 @@ final class DatePicker: UIAlertController {
         title = "\n\n\n\n\n\n\n\n\n\n\n"
     }
     
-    var okButtonHandler: ((Date)->Void)?
-    var cancelButtonHandler: (()->Void)?
     
     private func setupActions() {
         let ok = UIAlertAction(title: "ОК", style: .default) { (action) in

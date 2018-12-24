@@ -10,19 +10,17 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class TaskEditorViewController: UIViewController, TaskEditorView {
+final class TaskEditorViewController: UITableViewController, TaskEditorView {
     var output: TaskEditorViewOutput?
     private var viewModel: TaskEditorViewModel?
-    
-    private let tableView = UITableView(frame: .zero, style: .grouped)
     private let textFieldCellReuseIdentifier = "textFieldCellReuseIdentifier"
     private let textCellReuseIdentifier = "textCellReuseIdentifier"
     private let textAreaCellReuseIdentifier = "textAreaCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        embedViews()
-        setupLayout()
+//        embedViews()
+//        setupLayout()
         setupAppearance()
         setupBehavior()
         setupNavigationItem()
@@ -49,6 +47,7 @@ final class TaskEditorViewController: UIViewController, TaskEditorView {
     private func setupBehavior() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.keyboardDismissMode = .onDrag
         
         tableView.register(
             TextFieldTableViewCell.self,
@@ -65,7 +64,6 @@ final class TaskEditorViewController: UIViewController, TaskEditorView {
     }
     
     private func setupNavigationItem() {
-        navigationItem.title = "Редактирование задачи"
         let closeNavigationButton = UIBarButtonItem(
             barButtonSystemItem: .cancel,
             target: nil,
@@ -107,23 +105,23 @@ extension TaskEditorViewController: TaskEditorViewInput{
     }
 }
 
-extension TaskEditorViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension TaskEditorViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return TableStructure.Sections.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = TableStructure.Sections(rawValue: section) else {
             return nil
         }
         return section.title
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let section = TableStructure.Sections(rawValue: indexPath.section),
             let viewModel = viewModel
@@ -141,6 +139,7 @@ extension TaskEditorViewController: UITableViewDataSource {
                     value: viewModel.title
                 )
             )
+            cell.onTextChange = viewModel.onTitleChange
             return cell
             
         case .dueDate:
@@ -164,6 +163,7 @@ extension TaskEditorViewController: UITableViewDataSource {
             if let note = viewModel.note {
                 cell.set(text: note)
             }
+            cell.onTextChange = viewModel.onNoteChange
             return cell
         }
     }
@@ -190,8 +190,8 @@ private extension TaskEditorViewController {
     }
 }
 
-extension TaskEditorViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension TaskEditorViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let section = TableStructure.Sections(rawValue: indexPath.section) else {
             return
         }
