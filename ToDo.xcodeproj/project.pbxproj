@@ -39,6 +39,7 @@
 		49D1617721D0BEFA00F5C0CB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */; };
 		49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */; };
 		49D1617B21D0BF8000F5C0CB /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */; };
+		49D1618321D0EFD500F5C0CB /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaTableViewCell.swift; sourceTree = "<group>"; };
 		49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				49D1610E21CE68C000F5C0CB /* Assets.xcassets */,
 				49D1611021CE68C000F5C0CB /* LaunchScreen.storyboard */,
 				49D1611321CE68C000F5C0CB /* Info.plist */,
+				49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				49D1611B21CE69D400F5C0CB /* ToDoItem.swift in Sources */,
 				49D1617521D0447600F5C0CB /* TaskEditorAssembly.swift in Sources */,
 				49D1612521CFCAB400F5C0CB /* InMemoryStoreService.swift in Sources */,
+				49D1618321D0EFD500F5C0CB /* TransitionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
