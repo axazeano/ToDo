@@ -64,8 +64,14 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
                 self?.interactor?.update(note: note)
                 self?.updateViewModel()
             },
-            onStatusPress: {
-                
+            onStatusPress: { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+                self.router?.showStatusPicker(
+                    selectedStatus: task.status,
+                    statusPickerOutput: self
+                )
             },
             onDueDatePress: {
                 self.router?.showDatePicker(
@@ -88,6 +94,13 @@ extension TaskEditorPresenter: TaskEditorInteractorOutput {
     
     func requestToClose() {
         
+    }
+}
+
+extension TaskEditorPresenter: StatusPickerModuleOutput {
+    func set(status: ToDoStatus?) {
+        interactor?.update(status: status!)
+        updateViewModel()
     }
     
     
