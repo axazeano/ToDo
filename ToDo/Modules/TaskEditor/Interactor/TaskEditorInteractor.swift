@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol TaskEditorInteractorInput: class {
+    func save(task: ToDoItem)
+    func requestToClose()
+}
+
+protocol TaskEditorInteractorOutput: class {
+    func set(task: ToDoItem)
+}
