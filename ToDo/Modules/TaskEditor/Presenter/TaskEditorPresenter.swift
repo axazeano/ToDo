@@ -11,6 +11,12 @@ import Foundation
 class TaskEditorPresenter {
     weak var view: TaskEditorView?
     var interactor: TaskEditorInteractorInput?
+    var router: TaskEditorRouter?
+    private let dateFormatter = DateFormatter()
+    
+    init() {
+        dateFormatter.dateFormat = "d MMMM yyyy"
+    }
 }
 
 extension TaskEditorPresenter: TaskEditorViewOutput {
@@ -19,13 +25,7 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
     }
     
     func loaded() {
-        guard let oppenedTask = interactor?.getEditableTask() else {
-            return
-        }
-        
-        view?.set(
-            viewModel: getViewModelFromTask(oppenedTask)
-        )
+        updateViewModel()
     }
     
     func requestSaveChanges() {
@@ -40,17 +40,33 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
         
     }
     
+    private func updateViewModel() {
+        guard let oppenedTask = interactor?.getEditableTask() else {
+            return
+        }
+        
+        view?.set(
+            viewModel: getViewModelFromTask(oppenedTask)
+        )
+    }
+    
     private func getViewModelFromTask(_ task: ToDoItem) -> TaskEditorViewModel {
         return TaskEditorViewModel(
             title: task.title,
             status: task.status.rawValue,
             note: task.note,
-            dueDate: "date",
+            dueDate: dateFormatter.string(from: task.dueDate),
             onStatusPress: {
                 
             },
             onDueDatePress: {
-                
+                self.router?.showDatePicker(
+                    lowBoundaryDate: Date(),
+                    onAccept: { [weak self] (selectedDate) in
+                        self?.interactor?.update(dueDate: selectedDate)
+                        self?.updateViewModel()
+                    }
+                )
             }
         )
     }
