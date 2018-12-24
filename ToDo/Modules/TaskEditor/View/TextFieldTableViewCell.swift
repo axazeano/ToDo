@@ -13,11 +13,14 @@ import SnapKit
 final class TextFieldTableViewCell: UITableViewCell {
     private let textField = UITextField()
     
+    var onTextChange: ((String?)->Void)?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         embedViews()
         setupLayout()
         setupAppearance()
+        setupBehaviour()
     }
     
     func getText() -> String? {
@@ -50,11 +53,27 @@ final class TextFieldTableViewCell: UITableViewCell {
     private func setupAppearance() {
         textField.font = UIFont.systemFont(ofSize: 14.0)
     }
+    
+    private func setupBehaviour() {
+        textField.returnKeyType = .done
+        textField.delegate = self
+    }
 }
 
 extension TextFieldTableViewCell {
     struct ViewModel {
         let placeholder: String
         let value: String?
+    }
+}
+
+extension TextFieldTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        onTextChange?(textField.text)
     }
 }

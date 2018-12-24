@@ -14,6 +14,8 @@ struct TaskEditorViewModel {
     let note: String?
     let dueDate: String
     
+    let onTitleChange: (String?)->Void
+    let onNoteChange: (String?)->Void
     let onStatusPress: ()->Void
     let onDueDatePress: ()->Void
 }

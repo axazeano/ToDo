@@ -13,11 +13,13 @@ import SnapKit
 final class TextAreaTableViewCell: UITableViewCell {
     private let textArea = UITextView()
     
+    var onTextChange: ((String?)->Void)?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         embedViews()
         setupLayout()
-        setupAppearance()
+        setupBehaviour()
     }
     
     func getText() -> String? {
@@ -46,7 +48,18 @@ final class TextAreaTableViewCell: UITableViewCell {
         }
     }
     
-    private func setupAppearance() {
+    private func setupBehaviour() {
+        textArea.delegate = self
+    }
+}
+
+extension TextAreaTableViewCell: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            onTextChange?(nil)
+        } else {
+            onTextChange?(textView.text)
+        }
         
     }
 }
