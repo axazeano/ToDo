@@ -9,7 +9,6 @@
 import Foundation
 
 struct TaskEditorViewModel {
-    let createdAt: String
     let title: String
     let status: String
     let note: String?
