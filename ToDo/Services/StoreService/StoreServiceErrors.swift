@@ -10,5 +10,7 @@ import Foundation
 
 enum StoreServiceError: Error {
     case requestError
+    case loadItemsError
+    case storeItemsError
     case duplicateTaskError
 }

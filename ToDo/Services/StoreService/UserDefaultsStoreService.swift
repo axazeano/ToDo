@@ -21,10 +21,11 @@ final class UserDefaultsStoreService: StoreService {
         onSuccess: @escaping ([ToDoItem]) -> Void,
         onFailure: @escaping (StoreServiceError) -> Void
     ) {
-        guard let tasks = loadFromUserDefaults() else {
-            onFailure(.requestError)
+        guard let tasks = try? loadFromUserDefaults() else {
+            onFailure(.loadItemsError)
             return
         }
+        
         items = tasks
         onSuccess(items)
     }
@@ -39,7 +40,13 @@ final class UserDefaultsStoreService: StoreService {
             return
         }
         items.append(item)
-        storeToUserDefaults()
+        
+        do {
+            try storeToUserDefaults()
+        } catch {
+            onFailure(.storeItemsError)
+            return
+        }
         onSuccess(items)
     }
     
@@ -56,7 +63,13 @@ final class UserDefaultsStoreService: StoreService {
                 return $0
             }
         }
-        storeToUserDefaults()
+        
+        do {
+            try storeToUserDefaults()
+        } catch {
+            onFailure(.storeItemsError)
+            return
+        }
         onSuccess(items)
     }
     
@@ -66,26 +79,27 @@ final class UserDefaultsStoreService: StoreService {
         onFailure: @escaping (StoreServiceError) -> Void
     ) {
         items = items.filter { $0 != item }
-        storeToUserDefaults()
+        
+        do {
+            try storeToUserDefaults()
+        } catch {
+            onFailure(.storeItemsError)
+            return
+        }
         onSuccess(items)
     }
     
-    private func loadFromUserDefaults() -> [ToDoItem]? {
+    private func loadFromUserDefaults() throws -> [ToDoItem] {
         guard let data = userDefaults.data(forKey: storeKey) else {
             return [ToDoItem]()
         }
         
-        guard let tasks = try? decoder.decode([ToDoItem].self, from: data) else {
-            return nil
-        }
-        
+        let tasks = try decoder.decode([ToDoItem].self, from: data)
         return tasks
     }
     
-    private func storeToUserDefaults() {
-        guard let data = try? encoder.encode(items) else {
-            return
-        }
+    private func storeToUserDefaults() throws {
+        let data = try encoder.encode(items)
         userDefaults.set(data, forKey: storeKey)
     }
 }
