@@ -12,7 +12,7 @@ import SnapKit
 
 final class TaskEditorViewController: UIViewController, TaskEditorView {
     var output: TaskEditorViewOutput?
-    private var viewModel: TaskEditorViewModel!
+    private var viewModel: TaskEditorViewModel?
     
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let textFieldCellReuseIdentifier = "textFieldCellReuseIdentifier"
@@ -26,19 +26,7 @@ final class TaskEditorViewController: UIViewController, TaskEditorView {
         setupAppearance()
         setupBehavior()
         setupNavigationItem()
-        viewModel = TaskEditorViewModel.init(
-            title: "Task 1",
-            status: "new",
-            note: "werjwekrjw",
-            dueDate: "12 12 2018",
-            onStatusPress: { },
-            onDueDatePress: { self.showDatePicker() }
-        )
-        
-    }
-    
-    func apply(viewModel: TaskEditorViewModel) {
-        self.viewModel = viewModel
+        output?.loaded()
     }
     
     private func embedViews() {
@@ -93,11 +81,17 @@ final class TaskEditorViewController: UIViewController, TaskEditorView {
         
         navigationItem.rightBarButtonItem = saveNavatigationButton
     }
+    
+    @objc
+    private func handleSaveButtonPressed() {
+        
+    }
 }
 
 extension TaskEditorViewController: TaskEditorViewInput{
     func set(viewModel: TaskEditorViewModel) {
-        
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
     
     // FIXME: Костыль с просторов интернета
@@ -147,7 +141,10 @@ extension TaskEditorViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = TableStructure.Sections(rawValue: indexPath.section) else {
+        guard
+            let section = TableStructure.Sections(rawValue: indexPath.section),
+            let viewModel = viewModel
+        else {
             return UITableViewCell()
         }
         
@@ -181,7 +178,9 @@ extension TaskEditorViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: textAreaCellReuseIdentifier
             ) as! TextAreaTableViewCell
-            cell.set(text: viewModel.note ?? "")
+            if let note = viewModel.note {
+                cell.set(text: note)
+            }
             return cell
         }
     }
@@ -215,7 +214,7 @@ extension TaskEditorViewController: UITableViewDelegate {
         }
         switch section {
         case .dueDate:
-            viewModel.onDueDatePress()
+            viewModel?.onDueDatePress()
         default: return
         }
     }
