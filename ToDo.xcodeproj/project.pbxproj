@@ -55,6 +55,12 @@
 		49D161B421D1755B00F5C0CB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161B321D1755B00F5C0CB /* TodayViewController.swift */; };
 		49D161B721D1755B00F5C0CB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D161B521D1755B00F5C0CB /* MainInterface.storyboard */; };
 		49D161BB21D1755B00F5C0CB /* ToDoTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49D161AF21D1755B00F5C0CB /* ToDoTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		49D161C221D178F400F5C0CB /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1611A21CE69D400F5C0CB /* ToDoItem.swift */; };
+		49D161C321D178F700F5C0CB /* ToDoStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1611C21CE6C0300F5C0CB /* ToDoStatus.swift */; };
+		49D161C621D1793B00F5C0CB /* ShareDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161C521D1793B00F5C0CB /* ShareDataService.swift */; };
+		49D161C821D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161C721D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift */; };
+		49D161C921D17BA000F5C0CB /* ShareDataThrougUserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161C721D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift */; };
+		49D161CA21D17C5A00F5C0CB /* ShareDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161C521D1793B00F5C0CB /* ShareDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +151,10 @@
 		49D161B321D1755B00F5C0CB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		49D161B621D1755B00F5C0CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		49D161B821D1755B00F5C0CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49D161C021D176C700F5C0CB /* ToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDo.entitlements; sourceTree = "<group>"; };
+		49D161C121D1775500F5C0CB /* ToDoTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoTodayExtension.entitlements; sourceTree = "<group>"; };
+		49D161C521D1793B00F5C0CB /* ShareDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataService.swift; sourceTree = "<group>"; };
+		49D161C721D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataThrougUserDefaultService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +200,7 @@
 		49D1610621CE68BB00F5C0CB /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				49D161C021D176C700F5C0CB /* ToDo.entitlements */,
 				49D1613821D0028A00F5C0CB /* Modules */,
 				49D1611E21CE6D7A00F5C0CB /* Services */,
 				49D1611921CE696B00F5C0CB /* Entities */,
@@ -216,6 +227,7 @@
 		49D1611E21CE6D7A00F5C0CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				49D161C421D1792800F5C0CB /* ShareDataService */,
 				49D1611F21CE6E8D00F5C0CB /* StoreService */,
 			);
 			path = Services;
@@ -472,11 +484,21 @@
 		49D161B221D1755B00F5C0CB /* ToDoTodayExtension */ = {
 			isa = PBXGroup;
 			children = (
+				49D161C121D1775500F5C0CB /* ToDoTodayExtension.entitlements */,
 				49D161B321D1755B00F5C0CB /* TodayViewController.swift */,
 				49D161B521D1755B00F5C0CB /* MainInterface.storyboard */,
 				49D161B821D1755B00F5C0CB /* Info.plist */,
 			);
 			path = ToDoTodayExtension;
+			sourceTree = "<group>";
+		};
+		49D161C421D1792800F5C0CB /* ShareDataService */ = {
+			isa = PBXGroup;
+			children = (
+				49D161C521D1793B00F5C0CB /* ShareDataService.swift */,
+				49D161C721D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift */,
+			);
+			path = ShareDataService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,9 +553,19 @@
 				TargetAttributes = {
 					49D1610321CE68BB00F5C0CB = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					49D161AE21D1755B00F5C0CB = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -604,6 +636,7 @@
 				49D1616D21D0440700F5C0CB /* TaskEditorViewController.swift in Sources */,
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
 				49D161A221D11B7E00F5C0CB /* StatusPickerAssembly.swift in Sources */,
+				49D161C821D179C200F5C0CB /* ShareDataThrougUserDefaultService.swift in Sources */,
 				49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */,
 				49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */,
 				49D1610821CE68BB00F5C0CB /* AppDelegate.swift in Sources */,
@@ -617,6 +650,7 @@
 				49D1619021D1124100F5C0CB /* StatusPickerViewProtocols.swift in Sources */,
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
 				49D1614221D0030700F5C0CB /* TasksListViewController.swift in Sources */,
+				49D161C621D1793B00F5C0CB /* ShareDataService.swift in Sources */,
 				49D1611B21CE69D400F5C0CB /* ToDoItem.swift in Sources */,
 				49D1617521D0447600F5C0CB /* TaskEditorAssembly.swift in Sources */,
 				49D1612521CFCAB400F5C0CB /* InMemoryStoreService.swift in Sources */,
@@ -628,7 +662,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D161C221D178F400F5C0CB /* ToDoItem.swift in Sources */,
+				49D161C921D17BA000F5C0CB /* ShareDataThrougUserDefaultService.swift in Sources */,
+				49D161CA21D17C5A00F5C0CB /* ShareDataService.swift in Sources */,
 				49D161B421D1755B00F5C0CB /* TodayViewController.swift in Sources */,
+				49D161C321D178F700F5C0CB /* ToDoStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +833,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L6K7JNJ7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -818,6 +857,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L6K7JNJ7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -839,6 +879,7 @@
 		49D161BC21D1755C00F5C0CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ToDoTodayExtension/ToDoTodayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L6K7JNJ7;
 				INFOPLIST_FILE = ToDoTodayExtension/Info.plist;
@@ -858,6 +899,7 @@
 		49D161BD21D1755C00F5C0CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ToDoTodayExtension/ToDoTodayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8L6K7JNJ7;
 				INFOPLIST_FILE = ToDoTodayExtension/Info.plist;

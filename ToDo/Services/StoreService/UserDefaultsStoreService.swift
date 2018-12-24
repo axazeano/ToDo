@@ -9,13 +9,20 @@
 import Foundation
 
 final class UserDefaultsStoreService: StoreService {
+    private let shareDataService: ShareDataService
     private var items = [ToDoItem]()
     private let userDefaults = UserDefaults.standard
     private let storeKey = "toDoData"
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
-    static let shared = UserDefaultsStoreService()
+    static let shared = UserDefaultsStoreService(
+        shareDataService: ShareDataThrougUserDefaultService()
+    )
+    
+    init(shareDataService: ShareDataService) {
+        self.shareDataService = shareDataService
+    }
     
     func loadItems(
         onSuccess: @escaping ([ToDoItem]) -> Void,
@@ -99,6 +106,7 @@ final class UserDefaultsStoreService: StoreService {
     }
     
     private func storeToUserDefaults() throws {
+        shareDataService.share(items: items)
         let data = try encoder.encode(items)
         userDefaults.set(data, forKey: storeKey)
     }
