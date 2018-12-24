@@ -56,6 +56,14 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
             status: task.status.rawValue,
             note: task.note,
             dueDate: dateFormatter.string(from: task.dueDate),
+            onTitleChange: { [weak self] (title) in
+                self?.interactor?.update(title: title ?? "")
+                self?.updateViewModel()
+            },
+            onNoteChange: { [weak self] (note) in
+                self?.interactor?.update(note: note)
+                self?.updateViewModel()
+            },
             onStatusPress: {
                 
             },
