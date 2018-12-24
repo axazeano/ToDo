@@ -58,15 +58,15 @@ extension TaskListPresenter: TasksListInteractorOutput {
     private func convertTasksToViewModel(_ tasks: [ToDoItem]) -> TasksListViewModel {
         let uniqueDates = Set(
             tasks.compactMap {
-                self.extractDay(from: $0.createAt)
+                self.extractDay(from: $0.dueDate)
             }
         )
         
-        let sections = uniqueDates.map { (date) -> TasksListGroup in
+        let sections = uniqueDates.sorted().map { (date) -> TasksListGroup in
             let groupedTasks = tasks.filter {
                 self.calendar.compare(
                     date,
-                    to: $0.createAt,
+                    to: $0.dueDate,
                     toGranularity: .day
                 ) == .orderedSame
             }
@@ -87,7 +87,7 @@ extension TaskListPresenter: TasksListInteractorOutput {
             title: task.title,
             status: task.status.name,
             note: task.note,
-            dueDate: dateFormatter.string(from: task.createAt),
+            dueDate: dateFormatter.string(from: task.dueDate),
             onTapHandler: { [weak self] in
                 self?.router?.showEditTask(task)
             }
