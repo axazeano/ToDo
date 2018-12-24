@@ -96,24 +96,7 @@ extension TaskEditorViewController: TaskEditorViewInput{
     
     // FIXME: Костыль с просторов интернета
     func showDatePicker() {
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-        alert.view.addSubview(datePicker)
-        datePicker.snp.makeConstraints { (make) in
-            make.centerX.equalTo(alert.view)
-            make.top.equalTo(alert.view).offset(8)
-        }
-        let ok = UIAlertAction(title: "ОК", style: .default) { (action) in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateString = dateFormatter.string(from: datePicker.date)
-            print(dateString)
-        }
-        let cancel = UIAlertAction(title: "Отмена", style: .default, handler: nil)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+        
     }
     
     func showDeleteAlert() {

@@ -40,6 +40,8 @@
 		49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */; };
 		49D1617B21D0BF8000F5C0CB /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */; };
 		49D1618321D0EFD500F5C0CB /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */; };
+		49D1618621D0F31B00F5C0CB /* TaskEditorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618521D0F31B00F5C0CB /* TaskEditorRouter.swift */; };
+		49D1618821D0F38D00F5C0CB /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618721D0F38D00F5C0CB /* DatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +93,8 @@
 		49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaTableViewCell.swift; sourceTree = "<group>"; };
 		49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
+		49D1618521D0F31B00F5C0CB /* TaskEditorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorRouter.swift; sourceTree = "<group>"; };
+		49D1618721D0F38D00F5C0CB /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			children = (
 				49D1616121D03A8500F5C0CB /* TaskEditor */,
 				49D1613921D0029700F5C0CB /* TasksList */,
+				49D1618721D0F38D00F5C0CB /* DatePicker.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 		49D1616121D03A8500F5C0CB /* TaskEditor */ = {
 			isa = PBXGroup;
 			children = (
+				49D1618421D0F30E00F5C0CB /* Router */,
 				49D1616521D03AA500F5C0CB /* Assembly */,
 				49D1616421D03A9F00F5C0CB /* Interactor */,
 				49D1616321D03A9B00F5C0CB /* Presenter */,
@@ -319,6 +325,14 @@
 				49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49D1618421D0F30E00F5C0CB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				49D1618521D0F31B00F5C0CB /* TaskEditorRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +420,7 @@
 				49D1616921D043CB00F5C0CB /* TaskEditorViewProtocols.swift in Sources */,
 				49D1616F21D0443500F5C0CB /* TaskEditorPresenter.swift in Sources */,
 				49D1615421D00BF400F5C0CB /* StoreServiceErrors.swift in Sources */,
+				49D1618621D0F31B00F5C0CB /* TaskEditorRouter.swift in Sources */,
 				49D1616D21D0440700F5C0CB /* TaskEditorViewController.swift in Sources */,
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
 				49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */,
@@ -415,6 +430,7 @@
 				49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */,
 				49D1614C21D0034100F5C0CB /* TasksListInteractor.swift in Sources */,
 				49D1614821D0032A00F5C0CB /* TasksListPresenter.swift in Sources */,
+				49D1618821D0F38D00F5C0CB /* DatePicker.swift in Sources */,
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
 				49D1614221D0030700F5C0CB /* TasksListViewController.swift in Sources */,
 				49D1611B21CE69D400F5C0CB /* ToDoItem.swift in Sources */,

@@ -18,15 +18,13 @@ protocol TaskEditorViewOutput: class {
     func loaded()
     func requestSaveChanges(
         title: String?,
-        status: String?,
-        note: String?,
-        dueDate: String?
+        note: String?
     )
     
     func requestExit()
     func requestDeleteTask()
 }
 
-protocol TaskEditorView: TaskEditorViewInput {
+protocol TaskEditorView: TaskEditorViewInput, TransitionHandler {
     var output: TaskEditorViewOutput? { get set }
 }

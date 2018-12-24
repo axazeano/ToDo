@@ -15,10 +15,14 @@ final class TaskEditorAssembly {
             openedTask: openedTask,
             storeService: InMemoryStoreService()
         )
+        let router = TaskEditorRouter(transitionHandler: view)
+        
         view.output = presenter
         presenter.view = view
+        presenter.router = router
         
         presenter.interactor = interactor
         interactor.output = presenter
+        
     }
 }
