@@ -18,6 +18,24 @@ final class TasksListRouter {
     func showAddTask() {
         let addTaskView = TaskEditorViewController(style: .grouped)
         TaskEditorAssembly().assembly(with: addTaskView)
-        transitionHandler?.pushModule(with: addTaskView, animated: true)
+        
+        transitionHandler?.pushModule(
+            with: addTaskView,
+            animated: true
+        )
+    }
+    
+    func showEditTask(_ task: ToDoItem) {
+        let editTaskView = TaskEditorViewController(style: .grouped)
+        
+        TaskEditorAssembly().assembly(
+            with: editTaskView,
+            openedTask: task
+        )
+        
+        transitionHandler?.pushModule(
+            with: editTaskView,
+            animated: true
+        )
     }
 }

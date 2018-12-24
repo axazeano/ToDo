@@ -85,19 +85,13 @@ extension TaskListPresenter: TasksListInteractorOutput {
     private func converTaskToViewItem(_ task: ToDoItem) -> TasksListItem {
         return TasksListItem(
             title: task.title,
-            status: getTitle(for: task.status),
+            status: task.status.name,
             note: task.note,
             dueDate: dateFormatter.string(from: task.createAt),
-            onTapHandler: { }
+            onTapHandler: { [weak self] in
+                self?.router?.showEditTask(task)
+            }
         )
-    }
-    
-    private func getTitle(for status: ToDoStatus) -> String {
-        switch status {
-        case .new: return "Новая"
-        case .inProgress: return "В процессе"
-        case .completed: return "Завершена"
-        }
     }
     
     private func extractDay(from date: Date) -> Date? {
