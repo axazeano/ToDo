@@ -13,12 +13,15 @@ final class TasksListAssembly {
         
         let presenter = TaskListPresenter()
         let interactor = TasksListInteractor(
-            storeService: InMemoryStoreService()
+            storeService: InMemoryStoreService.shared
         )
+        
+        let router = TasksListRouter(transitionHandler: view)
         
         view.output = presenter
         presenter.view = view
         presenter.interactor = interactor
+        presenter.router = router
         interactor.output = presenter
     }
 }

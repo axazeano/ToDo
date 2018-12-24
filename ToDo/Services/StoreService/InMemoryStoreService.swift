@@ -11,6 +11,8 @@ import Foundation
 final class InMemoryStoreService: StoreService {
     private var items = [ToDoItem]()
     
+    static let shared = InMemoryStoreService()
+    
     func loadItems(
         onSuccess: @escaping ([ToDoItem]) -> Void,
         onFailure: @escaping (StoreServiceError) -> Void

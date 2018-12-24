@@ -24,6 +24,6 @@ protocol TasksListViewOutput: class {
     func requestConfigureFilter()
 }
 
-protocol TasksListView: TasksListViewInput {
+protocol TasksListView: TasksListViewInput, TransitionHandler {
     var output: TasksListViewOutput? { get set }
 }

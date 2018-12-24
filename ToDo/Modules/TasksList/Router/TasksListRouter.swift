@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+final class TasksListRouter {
+    private weak var transitionHandler: TransitionHandler?
+    
+    init(transitionHandler: TransitionHandler) {
+        self.transitionHandler = transitionHandler
+    }
+    
+    func showAddTask() {
+        let addTaskView = TaskEditorViewController(style: .grouped)
+        TaskEditorAssembly().assembly(with: addTaskView)
+        transitionHandler?.pushModule(with: addTaskView, animated: true)
+    }
+}

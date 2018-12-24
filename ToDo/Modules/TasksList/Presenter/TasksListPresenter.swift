@@ -11,6 +11,8 @@ import Foundation
 final class TaskListPresenter {
     weak var view: TasksListView?
     var interactor: TasksListInteractorInput?
+    var router: TasksListRouter?
+    
     private let dateFormatter = DateFormatter()
     private let calendar = Calendar.current
     
@@ -29,7 +31,7 @@ extension TaskListPresenter: TasksListViewOutput {
     }
     
     func requestCreateTask() {
-        
+        router?.showAddTask()
     }
     
     func requestConfigureFilter() {
