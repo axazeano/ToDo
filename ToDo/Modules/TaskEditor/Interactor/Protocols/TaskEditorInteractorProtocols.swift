@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TaskEditorInteractorInput: class {
-    func save(task: ToDoItem)
+    func save()
     func update(status: ToDoStatus)
     func update(dueDate: Date)
     func update(title: String)

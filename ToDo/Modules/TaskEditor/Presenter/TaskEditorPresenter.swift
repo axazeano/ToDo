@@ -29,7 +29,7 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
     }
     
     func requestSaveChanges() {
-        
+        interactor?.save()
     }
     
     func requestExit() {
@@ -93,7 +93,7 @@ extension TaskEditorPresenter: TaskEditorInteractorOutput {
     }
     
     func requestToClose() {
-        
+        router?.close()
     }
 }
 

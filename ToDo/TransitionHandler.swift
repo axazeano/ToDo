@@ -30,7 +30,11 @@ public protocol TransitionHandler: class {
 public extension TransitionHandler where Self: UIViewController {
     func dismiss(_ animated: Bool = true, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async { [weak self] in
-            self?.dismiss(animated: animated, completion: completion)
+            if let parent = self?.parent as? UINavigationController {
+                parent.popViewController(animated: animated)
+            } else {
+                self?.dismiss(animated: animated, completion: completion)
+            }
         }
     }
     

@@ -27,7 +27,7 @@ extension TaskListPresenter: TasksListViewOutput {
     }
     
     func appeared() {
-        
+        interactor?.requestTasks()
     }
     
     func requestCreateTask() {
