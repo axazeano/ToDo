@@ -42,7 +42,7 @@ final class TextAreaTableViewCell: UITableViewCell {
             make.top.equalTo(contentView.snp.top)
             make.trailing.equalTo(contentView.snp.trailing).offset(-16)
             make.bottom.equalTo(contentView.snp.bottom)
-            make.height.equalTo(40)
+            make.height.equalTo(100)
         }
     }
     
