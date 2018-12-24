@@ -49,6 +49,7 @@
 		49D1619C21D118A700F5C0CB /* StatusPickerModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619B21D118A700F5C0CB /* StatusPickerModuleProtocols.swift */; };
 		49D1619E21D11AEA00F5C0CB /* StatusPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */; };
 		49D161A221D11B7E00F5C0CB /* StatusPickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161A121D11B7E00F5C0CB /* StatusPickerAssembly.swift */; };
+		49D161A421D1289600F5C0CB /* UserDefaultsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161A321D1289600F5C0CB /* UserDefaultsStoreService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +110,7 @@
 		49D1619B21D118A700F5C0CB /* StatusPickerModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerModuleProtocols.swift; sourceTree = "<group>"; };
 		49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerRouter.swift; sourceTree = "<group>"; };
 		49D161A121D11B7E00F5C0CB /* StatusPickerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerAssembly.swift; sourceTree = "<group>"; };
+		49D161A321D1289600F5C0CB /* UserDefaultsStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStoreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				49D1612021CE6E9F00F5C0CB /* StoreService.swift */,
 				49D1612421CFCAB400F5C0CB /* InMemoryStoreService.swift */,
 				49D1615321D00BF400F5C0CB /* StoreServiceErrors.swift */,
+				49D161A321D1289600F5C0CB /* UserDefaultsStoreService.swift */,
 			);
 			path = StoreService;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				49D1614A21D0033700F5C0CB /* TasksListInteractorProtocols.swift in Sources */,
 				49D1617B21D0BF8000F5C0CB /* TextTableViewCell.swift in Sources */,
 				49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */,
+				49D161A421D1289600F5C0CB /* UserDefaultsStoreService.swift in Sources */,
 				49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */,
 				49D1619521D1133800F5C0CB /* StatusPickerTableViewController.swift in Sources */,
 				49D1614521D0031B00F5C0CB /* TasksListViewProtocols.swift in Sources */,

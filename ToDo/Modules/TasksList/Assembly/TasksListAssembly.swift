@@ -13,7 +13,7 @@ final class TasksListAssembly {
         
         let presenter = TaskListPresenter()
         let interactor = TasksListInteractor(
-            storeService: InMemoryStoreService.shared
+            storeService: UserDefaultsStoreService.shared
         )
         
         let router = TasksListRouter(transitionHandler: view)
