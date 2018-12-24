@@ -10,7 +10,11 @@ import Foundation
 
 protocol TaskEditorInteractorInput: class {
     func save(task: ToDoItem)
-    func getOpenedTask() -> ToDoItem?
+    func update(status: ToDoStatus)
+    func update(dueDate: Date)
+    func update(title: String)
+    func update(note: String?)
+    func getEditableTask() -> ToDoItem
 }
 
 protocol TaskEditorInteractorOutput: class {
