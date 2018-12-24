@@ -73,8 +73,8 @@ final class TaskEditorViewController: UITableViewController, TaskEditorView {
         
         let saveNavatigationButton = UIBarButtonItem(
             barButtonSystemItem: .done,
-            target: nil,
-            action: nil
+            target: self,
+            action: #selector(handleSaveButtonPressed)
         )
         
         navigationItem.rightBarButtonItem = saveNavatigationButton
@@ -82,7 +82,7 @@ final class TaskEditorViewController: UITableViewController, TaskEditorView {
     
     @objc
     private func handleSaveButtonPressed() {
-        
+        output?.requestSaveChanges()
     }
 }
 
@@ -106,7 +106,11 @@ extension TaskEditorViewController: TaskEditorViewInput{
 }
 
 extension TaskEditorViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        
         return 1
     }
     
@@ -114,14 +118,22 @@ extension TaskEditorViewController {
         return TableStructure.Sections.allCases.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
+        
         guard let section = TableStructure.Sections(rawValue: section) else {
             return nil
         }
         return section.title
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        
         guard
             let section = TableStructure.Sections(rawValue: indexPath.section),
             let viewModel = viewModel

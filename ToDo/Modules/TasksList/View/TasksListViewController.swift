@@ -31,6 +31,11 @@ final class TasksListViewController: UIViewController, TasksListView {
         output?.loaded()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output?.appeared()
+    }
+    
     private func setupLayout() {
         tableView.snp.makeConstraints { (make) in
             make.leading.equalTo(view.snp.leading)

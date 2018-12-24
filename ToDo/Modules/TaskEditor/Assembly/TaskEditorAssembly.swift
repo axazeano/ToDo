@@ -13,7 +13,7 @@ final class TaskEditorAssembly {
         let presenter = TaskEditorPresenter()
         let interactor = TaskEditorInteractor(
             openedTask: openedTask,
-            storeService: InMemoryStoreService()
+            storeService: InMemoryStoreService.shared
         )
         let router = TaskEditorRouter(transitionHandler: view)
         

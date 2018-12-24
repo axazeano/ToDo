@@ -9,7 +9,7 @@
 import Foundation
 
 final class TaskEditorRouter {
-    private let transitionHandler: TransitionHandler
+    private var transitionHandler: TransitionHandler?
     
     init(transitionHandler: TransitionHandler) {
         self.transitionHandler = transitionHandler
@@ -22,7 +22,7 @@ final class TaskEditorRouter {
         let datePicker = DatePicker()
         datePicker.okButtonHandler = onAccept
         datePicker.minimumDate = lowBoundaryDate
-        transitionHandler.presentModule(with: datePicker, animated: true)
+        transitionHandler?.presentModule(with: datePicker, animated: true)
     }
     
     func showStatusPicker(
@@ -35,6 +35,10 @@ final class TaskEditorRouter {
             moduleOutput: statusPickerOutput,
             selectedStatus: selectedStatus
         )
-        transitionHandler.presentModule(with: statusPickerView, animated: true)
+        transitionHandler?.presentModule(with: statusPickerView, animated: true)
+    }
+    
+    func close() {
+        transitionHandler?.dismiss(true, completion: nil)
     }
 }

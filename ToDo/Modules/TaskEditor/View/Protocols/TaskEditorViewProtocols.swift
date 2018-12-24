@@ -16,10 +16,7 @@ protocol TaskEditorViewInput: class {
 
 protocol TaskEditorViewOutput: class {
     func loaded()
-    func requestSaveChanges(
-        title: String?,
-        note: String?
-    )
+    func requestSaveChanges()
     
     func requestExit()
     func requestDeleteTask()

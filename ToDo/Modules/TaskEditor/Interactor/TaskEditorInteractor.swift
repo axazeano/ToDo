@@ -53,11 +53,11 @@ extension TaskEditorInteractor: TaskEditorInteractorInput {
         return editableTask
     }
     
-    func save(task: ToDoItem) {
+    func save() {
         if let openedTask = openedTask {
             storeService.replace(
                 oldItem: openedTask,
-                with: task,
+                with: editableTask,
                 onSuccess: { [weak self] (_) in
                     self?.output?.requestToClose()
                 },
@@ -67,7 +67,7 @@ extension TaskEditorInteractor: TaskEditorInteractorInput {
             )
         } else {
             storeService.add(
-                item: task,
+                item: editableTask,
                 onSuccess: { [weak self] (_) in
                     self?.output?.requestToClose()
                 },
