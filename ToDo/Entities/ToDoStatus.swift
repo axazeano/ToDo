@@ -8,8 +8,17 @@
 
 import Foundation
 
-enum ToDoStatus: String, Codable {
+enum ToDoStatus: String, Codable, CaseIterable {
     case new = "new"
     case inProgress = "inProgress"
     case completed = "completed"
+    
+    var name: String {
+        switch self {
+        case .new: return "Новая"
+        case .inProgress: return "В процессе"
+        case .completed: return "Завершенная"
+        }
+    }
+    
 }
