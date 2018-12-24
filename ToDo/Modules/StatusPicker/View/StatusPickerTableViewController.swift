@@ -18,6 +18,11 @@ class StatusPickerTableViewController: UITableViewController, StatusPickerView {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.loaded()
+        setupBehaviour()
+    }
+    
+    private func setupBehaviour() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
 }
 

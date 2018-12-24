@@ -24,4 +24,17 @@ final class TaskEditorRouter {
         datePicker.minimumDate = lowBoundaryDate
         transitionHandler.presentModule(with: datePicker, animated: true)
     }
+    
+    func showStatusPicker(
+        selectedStatus: ToDoStatus,
+        statusPickerOutput: StatusPickerModuleOutput
+    ) {
+        let statusPickerView = StatusPickerTableViewController(style: .grouped)
+        StatusPickerAssembly().assembly(
+            with: statusPickerView,
+            moduleOutput: statusPickerOutput,
+            selectedStatus: selectedStatus
+        )
+        transitionHandler.presentModule(with: statusPickerView, animated: true)
+    }
 }

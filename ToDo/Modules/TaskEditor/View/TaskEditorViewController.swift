@@ -198,6 +198,8 @@ extension TaskEditorViewController {
         switch section {
         case .dueDate:
             viewModel?.onDueDatePress()
+        case .status:
+            viewModel?.onStatusPress()
         default: return
         }
     }
