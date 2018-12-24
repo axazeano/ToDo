@@ -33,6 +33,26 @@ final class TaskEditorInteractor {
 }
 
 extension TaskEditorInteractor: TaskEditorInteractorInput {
+    func deleteTask() {
+        guard let openedTask = openedTask else {
+            return
+        }
+
+        storeService.remove(
+            item: openedTask,
+            onSuccess: { [weak self] (_) in
+                self?.output?.requestToClose()
+            },
+            onFailure: { [weak self ] (_) in
+                self?.output?.setErrorState()
+            }
+        )
+    }
+    
+    func isEditingMode() -> Bool {
+        return openedTask != nil
+    }
+    
     func update(status: ToDoStatus) {
         editableTask.status = status
     }

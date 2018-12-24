@@ -46,11 +46,26 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
         }
         
         view?.set(
-            viewModel: getViewModelFromTask(oppenedTask)
+            viewModel: getViewModelFromTask(
+                oppenedTask,
+                isEditingMode: interactor?.isEditingMode() ?? false
+            )
         )
     }
     
-    private func getViewModelFromTask(_ task: ToDoItem) -> TaskEditorViewModel {
+    private func getViewModelFromTask(
+        _ task: ToDoItem,
+        isEditingMode: Bool
+    ) -> TaskEditorViewModel {
+        
+        var onTaskDelete: (()->Void)?
+        
+        if isEditingMode {
+            onTaskDelete = { [weak self] in
+                self?.interactor?.deleteTask()
+            }
+        }
+        
         return TaskEditorViewModel(
             title: task.title,
             status: task.status.rawValue,
@@ -81,7 +96,8 @@ extension TaskEditorPresenter: TaskEditorViewOutput {
                         self?.updateViewModel()
                     }
                 )
-            }
+            },
+            onTaskDelete: onTaskDelete
         )
     }
     

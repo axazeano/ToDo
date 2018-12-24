@@ -15,6 +15,8 @@ protocol TaskEditorInteractorInput: class {
     func update(title: String)
     func update(note: String?)
     func getEditableTask() -> ToDoItem
+    func isEditingMode() -> Bool
+    func deleteTask()
 }
 
 protocol TaskEditorInteractorOutput: class {

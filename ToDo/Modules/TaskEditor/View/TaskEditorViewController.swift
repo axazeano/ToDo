@@ -16,28 +16,14 @@ final class TaskEditorViewController: UITableViewController, TaskEditorView {
     private let textFieldCellReuseIdentifier = "textFieldCellReuseIdentifier"
     private let textCellReuseIdentifier = "textCellReuseIdentifier"
     private let textAreaCellReuseIdentifier = "textAreaCellReuseIdentifier"
+    private let deleteCellReusIdentifier = "deleteCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        embedViews()
-//        setupLayout()
         setupAppearance()
         setupBehavior()
         setupNavigationItem()
         output?.loaded()
-    }
-    
-    private func embedViews() {
-        view.addSubview(tableView)
-    }
-    
-    private func setupLayout() {
-        tableView.snp.makeConstraints { (make) in
-            make.leading.equalTo(view.snp.leading)
-            make.top.equalTo(view.snp.top)
-            make.trailing.equalTo(view.snp.trailing)
-            make.bottom.equalTo(view.snp.bottom)
-        }
     }
     
     private func setupAppearance() {
@@ -60,6 +46,10 @@ final class TaskEditorViewController: UITableViewController, TaskEditorView {
         tableView.register(
             TextAreaTableViewCell.self,
             forCellReuseIdentifier: textAreaCellReuseIdentifier
+        )
+        tableView.register(
+            DeleteTableViewCell.self,
+            forCellReuseIdentifier: deleteCellReusIdentifier
         )
     }
     
@@ -110,7 +100,11 @@ extension TaskEditorViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return TableStructure.Sections.allCases.count
+        if let _ = viewModel?.onTaskDelete {
+            return TableStructure.Sections.allCases.count
+        } else {
+            return TableStructure.Sections.allCases.count - 1
+        }
     }
     
     override func tableView(
@@ -172,6 +166,12 @@ extension TaskEditorViewController {
             }
             cell.onTextChange = viewModel.onNoteChange
             return cell
+            
+        case .delete:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: deleteCellReusIdentifier
+            ) as! DeleteTableViewCell
+            return cell
         }
     }
 }
@@ -184,6 +184,7 @@ private extension TaskEditorViewController {
             case dueDate
             case status
             case notes
+            case delete
             
             var title: String {
                 switch self {
@@ -191,6 +192,7 @@ private extension TaskEditorViewController {
                 case .dueDate: return "Выполнить до"
                 case .status: return "Статус задачи"
                 case .notes: return "Заметки"
+                case .delete: return ""
                 }
             }
         }
@@ -210,6 +212,8 @@ extension TaskEditorViewController {
             viewModel?.onDueDatePress()
         case .status:
             viewModel?.onStatusPress()
+        case .delete:
+            viewModel?.onTaskDelete?()
         default: return
         }
     }
