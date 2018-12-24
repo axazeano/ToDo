@@ -14,7 +14,6 @@ protocol TaskEditorInteractorInput: class {
 }
 
 protocol TaskEditorInteractorOutput: class {
-    func set(task: ToDoItem)
     func setErrorState()
     func requestToClose()
 }
