@@ -14,7 +14,7 @@ struct ToDoItem: Codable, Equatable {
     let createAt: Date
     
     /// Дата окончания задачи
-    var dueDate: Date?
+    var dueDate: Date
     
     /// Заголовок задачи
     var title: String
@@ -27,7 +27,7 @@ struct ToDoItem: Codable, Equatable {
     
     init(
         createAt: Date,
-        dueDate: Date?,
+        dueDate: Date,
         title: String,
         note: String?,
         status: ToDoStatus
