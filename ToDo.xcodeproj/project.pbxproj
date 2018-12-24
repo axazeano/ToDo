@@ -50,6 +50,7 @@
 		49D1619E21D11AEA00F5C0CB /* StatusPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */; };
 		49D161A221D11B7E00F5C0CB /* StatusPickerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161A121D11B7E00F5C0CB /* StatusPickerAssembly.swift */; };
 		49D161A421D1289600F5C0CB /* UserDefaultsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161A321D1289600F5C0CB /* UserDefaultsStoreService.swift */; };
+		49D161AA21D16DAB00F5C0CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D161A921D16DAB00F5C0CB /* DeleteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +114,7 @@
 		49D161A321D1289600F5C0CB /* UserDefaultsStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStoreService.swift; sourceTree = "<group>"; };
 		49D161A521D16C0500F5C0CB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		49D161A621D16C0600F5C0CB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		49D161A921D16DAB00F5C0CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,11 +298,9 @@
 		49D1616221D03A9400F5C0CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49D161A821D16D7900F5C0CB /* Cells */,
 				49D1616621D03ADD00F5C0CB /* Protocols */,
 				49D1616C21D0440700F5C0CB /* TaskEditorViewController.swift */,
-				49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */,
-				49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */,
-				49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +417,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		49D161A821D16D7900F5C0CB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */,
+				49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */,
+				49D1617A21D0BF8000F5C0CB /* TextTableViewCell.swift */,
+				49D161A921D16DAB00F5C0CB /* DeleteTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -520,6 +531,7 @@
 				49D1614821D0032A00F5C0CB /* TasksListPresenter.swift in Sources */,
 				49D1619921D117BD00F5C0CB /* StatusPickerPresenter.swift in Sources */,
 				49D1618821D0F38D00F5C0CB /* DatePicker.swift in Sources */,
+				49D161AA21D16DAB00F5C0CB /* DeleteTableViewCell.swift in Sources */,
 				49D1619021D1124100F5C0CB /* StatusPickerViewProtocols.swift in Sources */,
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
 				49D1614221D0030700F5C0CB /* TasksListViewController.swift in Sources */,
