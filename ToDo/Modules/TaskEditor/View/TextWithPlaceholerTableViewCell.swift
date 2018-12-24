@@ -32,7 +32,7 @@ class TextWithPlaceholerTableViewCell: UITableViewCell {
             placeholderLabel.isHidden = true
         } else {
             placeholderLabel.text = viewModel.placeholder
-            placeholderLabel.isHidden = true
+            placeholderLabel.isHidden = false
             valueLabel.isHidden = true
         }
     }
@@ -45,21 +45,25 @@ class TextWithPlaceholerTableViewCell: UITableViewCell {
     private func setupLayout() {
         placeholderLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.top.equalTo(contentView.snp.top).offset(4)
+            make.top.equalTo(contentView.snp.top).offset(8)
             make.trailing.equalTo(contentView.snp.trailing).offset(-16)
-            make.bottom.equalTo(contentView.snp.bottom).offset(4)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.height.equalTo(24)
         }
         
-        placeholderLabel.snp.makeConstraints { (make) in
+        valueLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.top.equalTo(contentView.snp.top).offset(4)
+            make.top.equalTo(contentView.snp.top).offset(8)
             make.trailing.equalTo(contentView.snp.trailing).offset(-16)
-            make.bottom.equalTo(contentView.snp.bottom).offset(4)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.height.equalTo(24)
         }
     }
     
     private func setupAppearance() {
         placeholderLabel.textColor = .gray
+        placeholderLabel.font = UIFont.systemFont(ofSize: 14.0)
+        valueLabel.font = UIFont.systemFont(ofSize: 14.0)
     }
 }
 

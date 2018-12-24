@@ -24,6 +24,11 @@ final class TextFieldTableViewCell: UITableViewCell {
         return textField.text
     }
     
+    func apply(viewModel: ViewModel) {
+        textField.placeholder = viewModel.placeholder
+        textField.text = viewModel.value
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,14 +40,15 @@ final class TextFieldTableViewCell: UITableViewCell {
     private func setupLayout() {
         textField.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.top.equalTo(contentView.snp.top)
+            make.top.equalTo(contentView.snp.top).offset(8)
             make.trailing.equalTo(contentView.snp.trailing).offset(-16)
-            make.bottom.equalTo(contentView.snp.bottom)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.height.equalTo(24)
         }
     }
     
     private func setupAppearance() {
-        
+        textField.font = UIFont.systemFont(ofSize: 14.0)
     }
 }
 
