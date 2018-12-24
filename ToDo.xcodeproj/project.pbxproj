@@ -36,6 +36,9 @@
 		49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */; };
 		49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617221D0446700F5C0CB /* TaskEditorInteractor.swift */; };
 		49D1617521D0447600F5C0CB /* TaskEditorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617421D0447600F5C0CB /* TaskEditorAssembly.swift */; };
+		49D1617721D0BEFA00F5C0CB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */; };
+		49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */; };
+		49D1617B21D0BF8000F5C0CB /* TextWithPlaceholerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1617A21D0BF8000F5C0CB /* TextWithPlaceholerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +86,9 @@
 		49D1617021D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractorProtocols.swift; sourceTree = "<group>"; };
 		49D1617221D0446700F5C0CB /* TaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractor.swift; sourceTree = "<group>"; };
 		49D1617421D0447600F5C0CB /* TaskEditorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorAssembly.swift; sourceTree = "<group>"; };
+		49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaTableViewCell.swift; sourceTree = "<group>"; };
+		49D1617A21D0BF8000F5C0CB /* TextWithPlaceholerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithPlaceholerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +269,9 @@
 			children = (
 				49D1616621D03ADD00F5C0CB /* Protocols */,
 				49D1616C21D0440700F5C0CB /* TaskEditorViewController.swift */,
+				49D1617621D0BEFA00F5C0CB /* TextFieldTableViewCell.swift */,
+				49D1617821D0BF2800F5C0CB /* TextAreaTableViewCell.swift */,
+				49D1617A21D0BF8000F5C0CB /* TextWithPlaceholerTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,7 +394,9 @@
 				49D1616B21D043F500F5C0CB /* TaskEditorViewModels.swift in Sources */,
 				49D1615021D0039800F5C0CB /* TasksListRouter.swift in Sources */,
 				49D1610A21CE68BB00F5C0CB /* ViewController.swift in Sources */,
+				49D1617721D0BEFA00F5C0CB /* TextFieldTableViewCell.swift in Sources */,
 				49D1614A21D0033700F5C0CB /* TasksListInteractorProtocols.swift in Sources */,
+				49D1617B21D0BF8000F5C0CB /* TextWithPlaceholerTableViewCell.swift in Sources */,
 				49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */,
 				49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */,
 				49D1614521D0031B00F5C0CB /* TasksListViewProtocols.swift in Sources */,
@@ -394,6 +405,7 @@
 				49D1615421D00BF400F5C0CB /* StoreServiceErrors.swift in Sources */,
 				49D1616D21D0440700F5C0CB /* TaskEditorViewController.swift in Sources */,
 				49D1611D21CE6C0300F5C0CB /* ToDoStatus.swift in Sources */,
+				49D1617921D0BF2800F5C0CB /* TextAreaTableViewCell.swift in Sources */,
 				49D1614E21D0038C00F5C0CB /* TasksListAssembly.swift in Sources */,
 				49D1610821CE68BB00F5C0CB /* AppDelegate.swift in Sources */,
 				49D1615D21D0170900F5C0CB /* TaskListTableViewCell.swift in Sources */,
