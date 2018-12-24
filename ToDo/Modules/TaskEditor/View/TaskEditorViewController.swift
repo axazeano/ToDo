@@ -92,11 +92,6 @@ extension TaskEditorViewController: TaskEditorViewInput{
         tableView.reloadData()
     }
     
-    // FIXME: Костыль с просторов интернета
-    func showDatePicker() {
-        
-    }
-    
     func showDeleteAlert() {
         
     }
@@ -203,7 +198,10 @@ private extension TaskEditorViewController {
 }
 
 extension TaskEditorViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         guard let section = TableStructure.Sections(rawValue: indexPath.section) else {
             return
         }

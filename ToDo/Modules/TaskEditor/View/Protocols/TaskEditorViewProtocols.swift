@@ -10,7 +10,6 @@ import Foundation
 
 protocol TaskEditorViewInput: class {
     func set(viewModel: TaskEditorViewModel)
-    func showDatePicker()
     func showDeleteAlert()
 }
 
