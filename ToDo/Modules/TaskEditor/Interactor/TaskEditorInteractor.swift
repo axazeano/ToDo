@@ -8,11 +8,46 @@
 
 import Foundation
 
-protocol TaskEditorInteractorInput: class {
-    func save(task: ToDoItem)
-    func requestToClose()
+
+final class TaskEditorInteractor {
+    weak var output: TaskEditorInteractorOutput?
+    private var openedTask: ToDoItem?
+    private let storeService: StoreService
+    
+    init(openedTask: ToDoItem?, storeService: StoreService) {
+        self.openedTask = openedTask
+        self.storeService = storeService
+    }
 }
 
-protocol TaskEditorInteractorOutput: class {
-    func set(task: ToDoItem)
+extension TaskEditorInteractor: TaskEditorInteractorInput {
+    func save(task: ToDoItem) {
+        if let openedTask = openedTask {
+            storeService.replace(
+                oldItem: openedTask,
+                with: task,
+                onSuccess: { [weak self] (_) in
+                    self?.output?.requestToClose()
+                },
+                onFailure: { [weak self] (_) in
+                    self?.output?.setErrorState()
+                }
+            )
+        } else {
+            storeService.add(
+                item: task,
+                onSuccess: { [weak self] (_) in
+                    self?.output?.requestToClose()
+                },
+                onFailure: { [weak self ] (_) in
+                    self?.output?.setErrorState()
+                }
+            )
+        }
+    }
+    
+    func getOpenedTask() -> ToDoItem? {
+        return openedTask
+    }
+    
 }
