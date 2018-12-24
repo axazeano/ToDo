@@ -42,6 +42,12 @@
 		49D1618321D0EFD500F5C0CB /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */; };
 		49D1618621D0F31B00F5C0CB /* TaskEditorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618521D0F31B00F5C0CB /* TaskEditorRouter.swift */; };
 		49D1618821D0F38D00F5C0CB /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618721D0F38D00F5C0CB /* DatePicker.swift */; };
+		49D1619021D1124100F5C0CB /* StatusPickerViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1618F21D1124100F5C0CB /* StatusPickerViewProtocols.swift */; };
+		49D1619321D112A800F5C0CB /* StatusPickerViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619221D112A800F5C0CB /* StatusPickerViewModels.swift */; };
+		49D1619521D1133800F5C0CB /* StatusPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619421D1133800F5C0CB /* StatusPickerTableViewController.swift */; };
+		49D1619921D117BD00F5C0CB /* StatusPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619821D117BD00F5C0CB /* StatusPickerPresenter.swift */; };
+		49D1619C21D118A700F5C0CB /* StatusPickerModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619B21D118A700F5C0CB /* StatusPickerModuleProtocols.swift */; };
+		49D1619E21D11AEA00F5C0CB /* StatusPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +101,12 @@
 		49D1618221D0EFD500F5C0CB /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
 		49D1618521D0F31B00F5C0CB /* TaskEditorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorRouter.swift; sourceTree = "<group>"; };
 		49D1618721D0F38D00F5C0CB /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		49D1618F21D1124100F5C0CB /* StatusPickerViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerViewProtocols.swift; sourceTree = "<group>"; };
+		49D1619221D112A800F5C0CB /* StatusPickerViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerViewModels.swift; sourceTree = "<group>"; };
+		49D1619421D1133800F5C0CB /* StatusPickerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerTableViewController.swift; sourceTree = "<group>"; };
+		49D1619821D117BD00F5C0CB /* StatusPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerPresenter.swift; sourceTree = "<group>"; };
+		49D1619B21D118A700F5C0CB /* StatusPickerModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerModuleProtocols.swift; sourceTree = "<group>"; };
+		49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPickerRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +186,7 @@
 		49D1613821D0028A00F5C0CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49D1618921D111A600F5C0CB /* StatusPicker */,
 				49D1616121D03A8500F5C0CB /* TaskEditor */,
 				49D1613921D0029700F5C0CB /* TasksList */,
 				49D1618721D0F38D00F5C0CB /* DatePicker.swift */,
@@ -335,6 +348,67 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		49D1618921D111A600F5C0CB /* StatusPicker */ = {
+			isa = PBXGroup;
+			children = (
+				49D1618D21D111D500F5C0CB /* Router */,
+				49D1618C21D111CF00F5C0CB /* Assembly */,
+				49D1618B21D111C400F5C0CB /* Presenter */,
+				49D1618A21D111BF00F5C0CB /* View */,
+			);
+			path = StatusPicker;
+			sourceTree = "<group>";
+		};
+		49D1618A21D111BF00F5C0CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49D1618E21D111E700F5C0CB /* Protocols */,
+				49D1619421D1133800F5C0CB /* StatusPickerTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49D1618B21D111C400F5C0CB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				49D1619A21D1189300F5C0CB /* Protocols */,
+				49D1619821D117BD00F5C0CB /* StatusPickerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		49D1618C21D111CF00F5C0CB /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		49D1618D21D111D500F5C0CB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				49D1619D21D11AEA00F5C0CB /* StatusPickerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		49D1618E21D111E700F5C0CB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49D1618F21D1124100F5C0CB /* StatusPickerViewProtocols.swift */,
+				49D1619221D112A800F5C0CB /* StatusPickerViewModels.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49D1619A21D1189300F5C0CB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49D1619B21D118A700F5C0CB /* StatusPickerModuleProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,14 +482,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D1619321D112A800F5C0CB /* StatusPickerViewModels.swift in Sources */,
+				49D1619C21D118A700F5C0CB /* StatusPickerModuleProtocols.swift in Sources */,
 				49D1616B21D043F500F5C0CB /* TaskEditorViewModels.swift in Sources */,
 				49D1615021D0039800F5C0CB /* TasksListRouter.swift in Sources */,
 				49D1610A21CE68BB00F5C0CB /* ViewController.swift in Sources */,
 				49D1617721D0BEFA00F5C0CB /* TextFieldTableViewCell.swift in Sources */,
+				49D1619E21D11AEA00F5C0CB /* StatusPickerRouter.swift in Sources */,
 				49D1614A21D0033700F5C0CB /* TasksListInteractorProtocols.swift in Sources */,
 				49D1617B21D0BF8000F5C0CB /* TextTableViewCell.swift in Sources */,
 				49D1617321D0446700F5C0CB /* TaskEditorInteractor.swift in Sources */,
 				49D1617121D0445B00F5C0CB /* TaskEditorInteractorProtocols.swift in Sources */,
+				49D1619521D1133800F5C0CB /* StatusPickerTableViewController.swift in Sources */,
 				49D1614521D0031B00F5C0CB /* TasksListViewProtocols.swift in Sources */,
 				49D1616921D043CB00F5C0CB /* TaskEditorViewProtocols.swift in Sources */,
 				49D1616F21D0443500F5C0CB /* TaskEditorPresenter.swift in Sources */,
@@ -430,7 +508,9 @@
 				49D1615221D003E400F5C0CB /* TasksListViewModels.swift in Sources */,
 				49D1614C21D0034100F5C0CB /* TasksListInteractor.swift in Sources */,
 				49D1614821D0032A00F5C0CB /* TasksListPresenter.swift in Sources */,
+				49D1619921D117BD00F5C0CB /* StatusPickerPresenter.swift in Sources */,
 				49D1618821D0F38D00F5C0CB /* DatePicker.swift in Sources */,
+				49D1619021D1124100F5C0CB /* StatusPickerViewProtocols.swift in Sources */,
 				49D1612121CE6E9F00F5C0CB /* StoreService.swift in Sources */,
 				49D1614221D0030700F5C0CB /* TasksListViewController.swift in Sources */,
 				49D1611B21CE69D400F5C0CB /* ToDoItem.swift in Sources */,
