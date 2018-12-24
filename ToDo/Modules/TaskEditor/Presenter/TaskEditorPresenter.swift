@@ -14,8 +14,12 @@ class TaskEditorPresenter {
 }
 
 extension TaskEditorPresenter: TaskEditorViewOutput {
+    func requestSaveChanges(title: String?, note: String?) {
+        
+    }
+    
     func loaded() {
-        guard let oppenedTask = interactor?.getOpenedTask() else {
+        guard let oppenedTask = interactor?.getEditableTask() else {
             return
         }
         
